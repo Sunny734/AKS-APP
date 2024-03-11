@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: AKS_Demo
+  labels:
+    app: AKS_Demo
+  namespace: namespace-workflow-1710126585783
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: AKS_Demo
+  template:
+    metadata:
+      labels:
+        app: AKS_Demo
+    spec:
+      containers:
+        - name: AKS_Demo
+          image: myaksconatiner.azurecr.io/image-workflow-1710126585783:latest
+          ports:
+            - containerPort: 3000
